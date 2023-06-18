@@ -1,0 +1,29 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<img widht = "200px" height="200px" src="{{ article.image }}" alt="">
+    {% for article in articles %}
+        <p><b>Имя:</b>{{ article.name }}</p>
+        <p><b>Возраст:</b>{{ article.age }} год</p>
+        <p><b>Уровень счастья:</b>{{ article.happiness }}</p>
+        <p><b>Уровень сытости:</b>{{ article.hunger }}</p>
+    {% endfor %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <select name="action">
+            <option value="Усыпить">Усыпить</option>
+            <option value="Покормить">Покормить</option>
+            <option value="Поиграть">Поиграть</option>
+        </select>
+        <input type='submit' value="Подтвердить">
+    </form>
+</body>
+</html>
